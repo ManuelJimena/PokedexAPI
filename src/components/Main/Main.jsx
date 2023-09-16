@@ -14,8 +14,12 @@ function Pokemon({id, nombre, imagen, altura, peso, tipos}) {
                     <h2 className="pokemon-nombre">{nombre}</h2>
                 </div>
                 <div className="pokemon-tipos">
-                    <p className={tipos}>{tipos}</p>
-                </div>
+          {tipos.map((tipo, index) => (
+            <p key={index} className={tipo}>
+              {tipo}
+            </p>
+          ))}
+        </div>
                 <div className="pokemon-stats">
                     <p className="stat">{altura}</p>
                     <p className="stat">{peso}</p>
