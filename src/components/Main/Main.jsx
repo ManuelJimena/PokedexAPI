@@ -1,15 +1,27 @@
 import usePokemons from "../../hooks/usePokemons"
 import "./Main.css"
 
-function Pokemon({id, nombre, imagen}) {
+function Pokemon({id, nombre, imagen, altura, peso, tipos}) {
     return (
-        <div className="pokemon-card" key={id}>
-        <img src={imagen} alt={nombre} className="pokemon-image"/>
-        <p className="pokemon-title">
-        <span>#{id}</span>
-        <span>{nombre}</span>
-        </p>
-    </div>
+        <div className="pokemon" key={id}>
+            <p className="pokemon-id-back">{id}</p>
+            <div className="pokemon-imagen">
+                <img src={imagen} alt={nombre}/>
+            </div>
+            <div className="pokemon-info">
+                <div className="nombre-contenedor">
+                    <p className="pokemon-id">{id}</p>
+                    <h2 className="pokemon-nombre">{nombre}</h2>
+                </div>
+                <div className="pokemon-tipos">
+                    <p className={tipos}>{tipos}</p>
+                </div>
+                <div className="pokemon-stats">
+                    <p className="stat">{altura}</p>
+                    <p className="stat">{peso}</p>
+                </div>
+            </div>
+        </div>
     )
 }
 

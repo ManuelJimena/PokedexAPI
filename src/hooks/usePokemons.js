@@ -13,11 +13,16 @@ function usePokemons() {
         const newPokemons = await Promise.all(results.map( async (pokemon) => {
             const response = await fetch(pokemon.url)
             const poke = await response.json()
+            let tipos = poke.types.map(type => type.type.name);
+            tipos = tipos.join("")
             
             return {
                 id: poke.id,
                 nombre: poke.name,
-                imagen: poke.sprites.other.dream_world.front_default
+                imagen: poke.sprites.other["official-artwork"].front_default,
+                altura: poke.height,
+                peso: poke.weight,
+                tipos: tipos
             }
             }))
         
