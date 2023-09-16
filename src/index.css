@@ -1,3 +1,39 @@
 :root {
+  --primary: #5e04d7;
+  --secondary: #ffffff;
+
+  --planta: #9bcc50;
+  --fuego: #ff7402;
+	--bicho: #729f3f;
+  --hada: #fdb9e9;
+  --dragón: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  --fantasma: #4d5b64;
+  --tirra: #a38c21;
+  --normal: #a4acaf;
+  --psíquico: #f366b9;
+	--acero: #9eb7b8;
+  --siniestro: #7b62a3;
+  --eléctrico: #bba909;
+  --lucha: #d56723;
+  --volador: #3dc7ef;
+  --hielo: #51c4e7;
+	--agua: #4592c4;
+	--veneno: #7e0058;
+	
+	--oscuridaD: #707070;
+	--desconocido: #757575;
+
   font-family: 'Inclusive Sans', sans-serif;
 }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--secondary);
+  color: var(--primary);
+}
+
