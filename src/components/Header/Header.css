@@ -1,3 +1,44 @@
-h1 {
-    color: red;
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .5rem 0;
+}
+
+.logo {
+    height: 4rem;
+    width: auto;
+}
+
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch label {
+    background-color: gray;
+    width: 4rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.switch label span{
+    background-color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+}
+
+.checkswitch:checked + .slider {
+    transform: translateX(2.3rem);
+}
+
+.bx {
+    font-size: 1.5rem;
+    cursor: pointer;
 }
