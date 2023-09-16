@@ -14,10 +14,18 @@
     border-radius: 20px;
     background-color: var(--primary);
     padding: 5px 0;
+    box-shadow: 4px 4px 1px #00000020;
+    transition: 0.3s;
+
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 15px 0 #21212170;
+    }
 }
 
 .pokemon-card p {
     color: var(--secondary);
+    text-transform: capitalize;
 }
 
 .pokemon-image {
