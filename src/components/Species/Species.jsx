@@ -2,25 +2,25 @@ import "./Species.css";
 
 const Species = () => {
     const tiposDePokemon = [
-        "Ver todos",
-        "Planta",
-        "Fuego",
-        "Agua",
-        "Eléctrico",
-        "Hielo",
-        "Lucha",
-        "Veneno",
-        "Tierra",
-        "Volador",
-        "Psíquico",
-        "Bicho",
-        "Roca",
-        "Fantasma",
-        "Dragón",
-        "Siniestro",
-        "Acero",
-        "Hada",
-        "Normal"
+        "ver todos",
+        "planta",
+        "fuego",
+        "agua",
+        "eléctrico",
+        "hielo",
+        "lucha",
+        "veneno",
+        "tierra",
+        "volador",
+        "psíquico",
+        "bicho",
+        "roca",
+        "fantasma",
+        "dragón",
+        "siniestro",
+        "acero",
+        "hada",
+        "normal"
       ]; 
       
     return (

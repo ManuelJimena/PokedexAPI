@@ -3,6 +3,7 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: .5rem 0;
+    box-shadow: 4px 4px 8px #00000020;
 }
 
 .logo {
@@ -17,7 +18,7 @@ header {
 }
 
 .switch label {
-    background-color: gray;
+    background-color: var(--primary);
     width: 4rem;
     height: 1.5rem;
     border-radius: 1rem;
@@ -32,6 +33,7 @@ header {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 1.5rem;
+    transition: 0.5s;
 }
 
 .checkswitch:checked + .slider {

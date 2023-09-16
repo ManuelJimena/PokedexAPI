@@ -1,97 +1,116 @@
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 2rem;
+  
+}
+
 .nav-list button {
     border: none;
     border-radius: 20px;
     padding: 5px 10px;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
-.Planta {
+  .planta {
     background-color: var(--planta);
     color: var(--secondary);
   }
   
-  .Fuego {
+  .fuego {
     background-color: var(--fuego);
     color: var(--secondary);
   }
   
-  .Agua {
+  .agua {
     background-color: var(--agua);
     color: var(--secondary);
   }
   
-  .Eléctrico {
+  .eléctrico {
     background-color: var(--eléctrico);
     color: var(--secondary);
   }
   
-  .Hielo {
+  .hielo {
     background-color: var(--hielo);
     color: var(--secondary);
   }
   
-  .Lucha {
+  .lucha {
     background-color: var(--lucha);
     color: var(--secondary);
   }
   
-  .Veneno {
+  .veneno {
     background-color: var(--veneno);
     color: var(--secondary);
   }
   
-  .Tierra {
+  .tierra {
     background-color: var(--tierra);
     color: var(--secondary);
   }
   
-  .Volador {
+  .volador {
     background-color: var(--volador);
     color: var(--secondary);
   }
   
-  .Psíquico {
+  .psíquico {
     background-color: var(--psíquico);
     color: var(--secondary);
   }
   
-  .Bicho {
+  .bicho {
     background-color: var(--bicho);
     color: var(--secondary);
   }
   
-  .Roca {
+  .roca {
     background-color: var(--roca);
     color: var(--secondary);
   }
   
-  .Fantasma {
+  .fantasma {
     background-color: var(--fantasma);
     color: var(--secondary);
   }
   
-  .Dragón {
+  .dragón {
     background-color: var(--dragón);
     color: var(--secondary);
   }
   
-  .Siniestro {
+  .siniestro {
     background-color: var(--siniestro);
     color: var(--secondary);
   }
   
-  .Acero {
+  .acero {
     background-color: var(--acero);
     color: var(--secondary);
   }
   
-  .Hada {
+  .hada {
     background-color: var(--hada);
     color: var(--secondary);
   }
   
-  .Normal {
+  .normal {
     background-color: var(--normal);
     color: var(--secondary);
   }
+
+  @media (max-width: 650px) {
+    .nav-list {
+      margin: 1rem 1.3rem;   
+    }
+  }
+ 
   
