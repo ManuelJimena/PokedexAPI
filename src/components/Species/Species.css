@@ -1,0 +1,97 @@
+.nav-list button {
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.Planta {
+    background-color: var(--planta);
+    color: var(--secondary);
+  }
+  
+  .Fuego {
+    background-color: var(--fuego);
+    color: var(--secondary);
+  }
+  
+  .Agua {
+    background-color: var(--agua);
+    color: var(--secondary);
+  }
+  
+  .Eléctrico {
+    background-color: var(--eléctrico);
+    color: var(--secondary);
+  }
+  
+  .Hielo {
+    background-color: var(--hielo);
+    color: var(--secondary);
+  }
+  
+  .Lucha {
+    background-color: var(--lucha);
+    color: var(--secondary);
+  }
+  
+  .Veneno {
+    background-color: var(--veneno);
+    color: var(--secondary);
+  }
+  
+  .Tierra {
+    background-color: var(--tierra);
+    color: var(--secondary);
+  }
+  
+  .Volador {
+    background-color: var(--volador);
+    color: var(--secondary);
+  }
+  
+  .Psíquico {
+    background-color: var(--psíquico);
+    color: var(--secondary);
+  }
+  
+  .Bicho {
+    background-color: var(--bicho);
+    color: var(--secondary);
+  }
+  
+  .Roca {
+    background-color: var(--roca);
+    color: var(--secondary);
+  }
+  
+  .Fantasma {
+    background-color: var(--fantasma);
+    color: var(--secondary);
+  }
+  
+  .Dragón {
+    background-color: var(--dragón);
+    color: var(--secondary);
+  }
+  
+  .Siniestro {
+    background-color: var(--siniestro);
+    color: var(--secondary);
+  }
+  
+  .Acero {
+    background-color: var(--acero);
+    color: var(--secondary);
+  }
+  
+  .Hada {
+    background-color: var(--hada);
+    color: var(--secondary);
+  }
+  
+  .Normal {
+    background-color: var(--normal);
+    color: var(--secondary);
+  }
+  

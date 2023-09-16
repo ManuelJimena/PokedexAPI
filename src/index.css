@@ -3,26 +3,23 @@
   --secondary: #ffffff;
 
   --planta: #9bcc50;
-  --fuego: #ff7402;
-	--bicho: #729f3f;
-  --hada: #fdb9e9;
-  --dragón: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
-  --fantasma: #4d5b64;
-  --tirra: #a38c21;
-  --normal: #a4acaf;
-  --psíquico: #f366b9;
-	--acero: #9eb7b8;
-  --siniestro: #7b62a3;
-  --eléctrico: #bba909;
-  --lucha: #d56723;
-  --volador: #3dc7ef;
+  --fuego: #ff9c54;
+  --agua: #6390f0;
+  --eléctrico: #f7d02c;
   --hielo: #51c4e7;
-	--agua: #4592c4;
-	--veneno: #7e0058;
-	
-	--oscuridaD: #707070;
-	--desconocido: #757575;
-
+  --lucha: #d56723;
+  --veneno: #b97fc9;
+  --tierra: #da7c4d;
+  --volador: #83a2e3;
+  --psíquico: #f366b9;
+  --bicho: #a7b31f;
+  --roca: #a38c21;
+  --fantasma: #65539a;
+  --dragón: #0c69c8;
+  --siniestro: #5a5454;
+  --acero: #b5b8cf;
+  --hada: #fdb9e9;
+  --normal: #a8a77a;
   font-family: 'Inclusive Sans', sans-serif;
 }
 
