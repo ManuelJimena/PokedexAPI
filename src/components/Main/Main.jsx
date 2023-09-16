@@ -1,5 +1,18 @@
 import "./Main.css"
 import { useEffect, useState } from 'react';
+
+function Pokemon({id, nombre, imagen}) {
+    return (
+        <div className="pokemon-card" key={id}>
+        <img src={imagen} alt={nombre} className="pokemon-image"/>
+        <p className="pokemon-title">
+        <span>#{id}</span>
+        <span>{nombre}</span>
+        </p>
+    </div>
+    )
+}
+
 const Main = () => {
 
 const [pokemons, setPokemons] = useState([])
@@ -16,8 +29,8 @@ const poke = await response.json()
 
 return {
     id: poke.id,
-    name: poke.name,
-    img: poke.sprites.other.dream_world.front_default
+    nombre: poke.name,
+    imagen: poke.sprites.other.dream_world.front_default
 }
 })
 
@@ -29,16 +42,9 @@ getPokemons()
 
     return (
         <main>
-            {pokemons.map(pokemon => {
-return (
-    <div key={pokemon.id}>
-        <img src={pokemon.img} alt={pokemon.name} />
-        <p>{pokemon.name}</p>
-        <span>{pokemon.id}</span>
-    </div>
-)
-            })
-            }
+            <section className="pokemon-container">
+            { pokemons.map(pokemon => <Pokemon {...pokemon}/>)}
+            </section>
         </main>
     )
 }
