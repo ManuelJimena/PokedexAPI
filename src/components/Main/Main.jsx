@@ -10,7 +10,18 @@ const getPokemons  = async () => {
 const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
 const listaPokemons = await response.json()
 const { results } = listaPokemons
-setPokemons(results)
+const newPokemons = results.map( async (pokemon) => {
+const response = await fetch(pokemon.url)
+const poke = await response.json()
+
+return {
+    id: poke.id,
+    name: poke.name,
+    img: poke.sprites.other.dream_world.front_default
+}
+})
+
+setPokemons(await Promise.all(newPokemons))
 
 }
 getPokemons()
@@ -18,7 +29,16 @@ getPokemons()
 
     return (
         <main>
-            {pokemons.map(pokemon => <p key={pokemon.name}>{pokemon.name}</p>)}
+            {pokemons.map(pokemon => {
+return (
+    <div key={pokemon.id}>
+        <img src={pokemon.img} alt={pokemon.name} />
+        <p>{pokemon.name}</p>
+        <span>{pokemon.id}</span>
+    </div>
+)
+            })
+            }
         </main>
     )
 }
