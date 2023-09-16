@@ -1,5 +1,6 @@
 import "./Header.css";
 import logo from "../../assets/logo_Pokédex.png"
+
 const Header = () => {
     return (
         <header>
