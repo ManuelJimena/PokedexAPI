@@ -15,13 +15,15 @@ function Pokemon({id, nombre, imagen}) {
 
 const Main = () => {
 
-const {pokemons} = usePokemons()
+const {pokemons, masPokemons} = usePokemons()
 
     return (
         <main>
             <section className="pokemon-container">
-            { pokemons.map(pokemon => <Pokemon {...pokemon}/>)}
+            { pokemons.map(pokemon => <Pokemon {...pokemon} key={pokemon.id}/>)}
+            
             </section>
+            <button className="more-btn" onClick={masPokemons}>Mostrar más</button>
         </main>
     )
 }

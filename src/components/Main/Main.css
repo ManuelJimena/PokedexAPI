@@ -46,3 +46,24 @@ margin: 5px 0;
     width: auto;
     gap: 15px;
 }
+
+.more-btn {
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: 10px;
+    padding: 12px;
+    margin: 2% 0% 2% 46.7%;
+    border: none;
+    box-shadow: 4px 4px 16px #00000020;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    transition: 0.5s;
+    &:hover {
+        transform: scale(1.08);
+        opacity: 0.9;
+    }
+}
