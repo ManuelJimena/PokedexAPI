@@ -12,7 +12,7 @@
     border: 1px solid var(--primary);
     border-radius: 10px;
     padding: 12px;
-    flex: .5;
+    flex: .2;
     font-size: 16px;
     box-shadow: 4px 4px 16px #00000020;
 }

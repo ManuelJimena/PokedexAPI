@@ -20,7 +20,7 @@ const [pokemons, setPokemons] = useState([])
 useEffect(() => {
 const getPokemons  = async () => {
 //Recuperamos el listado de Pokemons
-const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
+const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=24&offset=0")
 const listaPokemons = await response.json()
 const { results } = listaPokemons
 const newPokemons = results.map( async (pokemon) => {

@@ -1,6 +1,6 @@
 .pokemon-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
     gap: 15px;
     padding: 10px;
     max-width: 1200px;
@@ -24,4 +24,17 @@
 width: 150px;
 height: 150px;
 margin: 5px 0;
+}
+
+.pokemon-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.479);
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 10px;
+    width: auto;
+    gap: 15px;
 }
