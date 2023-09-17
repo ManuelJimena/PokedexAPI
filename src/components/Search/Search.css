@@ -2,13 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
     gap: 5px;
-    padding: 5px 0;
 }
 
 .search-input {
-    margin: 1rem 0;
+    margin-bottom: 1.5rem;
     background-color: var(--secondary);
     border: 1px solid var(--primary);
     border-radius: 10px;
@@ -22,6 +20,7 @@
     background-color: var(--primary);
     color: var(--secondary);
     border-radius: 10px;
+    margin-bottom: 1.5rem;
     padding: 12px;
     border: none;
     box-shadow: 4px 4px 16px #00000020;

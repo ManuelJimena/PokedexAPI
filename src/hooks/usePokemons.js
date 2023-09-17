@@ -1,54 +1,64 @@
 import { useEffect, useState } from 'react';
 const UR_DEFAULT = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
+const URL_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon/'
 
 function usePokemons() {
     const [pokemons, setPokemons] = useState([])
     const [siguienteUrl, setSiguienteUrl] = useState("")
     const [verMas, setVerMas] = useState(true)
 
-    const getPokemons  = async (url = UR_DEFAULT) => {
-        //Recuperamos el listado de Pokemons
+    const fetchPokemon = async (url) => {
         const response = await fetch(url)
-        const listaPokemons = await response.json()
-        const { next, results } = listaPokemons
-        const newPokemons = await Promise.all(results.map( async (pokemon) => {
-            const response = await fetch(pokemon.url)
-            const poke = await response.json()
-            let tipos = poke.types.map(type => type.type.name);
+        const poke = await response.json()
+
+            const abilities = poke.abilities.map(a => a.ability.name)
+            const stats = poke.stats.map(s => {return { name: s.stat.name, base: s.base_stat}})
+            const tipos = poke.types.map(t => t.type.name);
             
             return {
                 id: poke.id,
                 nombre: poke.name,
                 imagen: poke.sprites.other["official-artwork"].front_default,
+                abilities,
+                stats,
                 altura: poke.height,
                 peso: poke.weight,
-                tipos: tipos
+                tipos,
             }
-            }))
+         }
         
-        return {next, newPokemons}
+    const getPokemons = async (url = UR_DEFAULT) => {
+        const response = await fetch(url)
+        const listaPokemons = await response.json()
+        const { next, results } = listaPokemons
+        const newPokemons = await Promise.all(
+            results.map((pokemon) => fetchPokemon(pokemon.url))
+          )
+      
+          return { next, newPokemons }
+        }
+
+        const obtenerPokemons = async () => {
+            const { next, newPokemons } = await getPokemons()
+            setPokemons(newPokemons)
+            setSiguienteUrl(next)
+          }
         
-    }
-
-    const obtenerPokemons = async () => {
-        const {next, newPokemons} = await getPokemons()
-        setPokemons(newPokemons)
-        setSiguienteUrl(next)
-    }
-
-    const masPokemons = async () => {
-        const {next, newPokemons} = await getPokemons(siguienteUrl)
-        setPokemons(prev => [...prev, ...newPokemons])
-        next === null && setVerMas(false)
-        setSiguienteUrl(next)
-    }
-
-    useEffect(() => {
-    
-    obtenerPokemons()
-      }, [])
-
-      return {pokemons, masPokemons, verMas}
-};
-
-export default usePokemons;
+          const masPokemons = async () => { 
+            const { next, newPokemons } = await getPokemons(siguienteUrl)
+            setPokemons(prev => [...prev, ...newPokemons])
+            next === null && setVerMas(false)
+            setSiguienteUrl(next)
+          }
+        
+          const searchPokemon = async (busqueda) => {
+            const url = `${URL_ENDPOINT}${busqueda.toLocaleLowerCase()}`
+            return await fetchPokemon(url)
+          }
+        
+          useEffect(() => { obtenerPokemons() }, [])
+        
+          return { pokemons, masPokemons, verMas, searchPokemon }
+        }
+        
+        export default usePokemons

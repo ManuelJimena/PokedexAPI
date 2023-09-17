@@ -8,6 +8,7 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+    overflow: hidden;
 }
 
 .pokemons {
@@ -118,6 +119,15 @@ border-radius: 100vmax;
     justify-content: center;
     gap: 5px;
     margin: 2% 0;
+}
+
+h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2% 0;
+    font-size: 60px;
 }
 
 @media (max-width: 480px) {

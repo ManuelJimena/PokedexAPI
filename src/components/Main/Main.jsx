@@ -1,10 +1,13 @@
+import "./Main.css"
 import usePokemons from "../../hooks/usePokemons"
 import InfiniteScroll from "react-infinite-scroll-component"
-import "./Main.css"
+import Cards from "../Cards/Cards"
+import Search from "../Search/Search"
+import { useState } from 'react';
 
-function Pokemon({id, nombre, imagen, altura, peso, tipos}) {
+function Pokemon({id, nombre, imagen, altura, peso, tipos, verPokemon}) {
     return (
-        <div className="pokemons" key={id}>
+        <div className="pokemons" key={id} onClick={verPokemon}>
             <p className="pokemon-id-back">#{id}</p>
             <div className="pokemon-imagen">
                 <img src={imagen} alt={nombre}/>
@@ -36,10 +39,29 @@ function Pokemon({id, nombre, imagen, altura, peso, tipos}) {
 
 const Main = () => {
 
-const {pokemons, masPokemons, verMas} = usePokemons()
+const {pokemons, masPokemons, verMas, searchPokemon } = usePokemons()
+const [mostrar, setMostrar] = useState({ mostrar: false, pokemon: {} })
+const [busqueda, setBusqueda] = useState('')
+const verPokemon = (pokemon) => setMostrar({ mostrar: true, pokemon })
+const noVerPokemon = () => {
+    setMostrar({ mostrar: false, pokemon: {}})
+    setBusqueda('')
+  }
+
+  const buscarPokemon = async (e) => {
+    e.preventDefault()
+
+    if (!busqueda) return
+
+    const pokemon = await searchPokemon(busqueda)
+    console.log(pokemon);
+    setMostrar({ mostrar: true, pokemon })
+  }
 
     return (
         <main>
+            <Cards {...mostrar} cerrar={noVerPokemon}/>
+            <Search busqueda={busqueda} setBusqueda={setBusqueda} buscarPokemon={buscarPokemon}/>
             <section id="todos">
                 <InfiniteScroll
                 dataLength={pokemons.length}
@@ -51,7 +73,7 @@ const {pokemons, masPokemons, verMas} = usePokemons()
                 }
                 >
                 <div className="pokemon-todos" id="listaPokemon">
-            { pokemons.map(pokemon => <Pokemon {...pokemon} key={pokemon.id}/>)}
+            { pokemons.map(pokemon => <Pokemon {...pokemon} key={pokemon.id} verPokemon={() => verPokemon(pokemon)}/>)}
                 </div>
                 </InfiniteScroll>
             </section>
