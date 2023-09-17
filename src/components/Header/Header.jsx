@@ -4,7 +4,7 @@ import logo from "../../assets/logo_Pokédex.png"
 const Header = () => {
     return (
         <header>
-            <img src={logo} alt="logo pokédex" className="logo"/>
+            <a href="#/"><img src={logo} alt="logo pokédex" className="logo"/></a>
             <div className="switch">
                 <i className="bx bx-sun" id="darkMode-icon" />
                 <label>

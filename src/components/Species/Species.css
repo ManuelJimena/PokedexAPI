@@ -17,87 +17,87 @@
     text-transform: uppercase;
 }
 
-  .planta {
+  .grass {
     background-color: var(--planta);
     color: var(--secondary);
   }
   
-  .fuego {
+  .fire {
     background-color: var(--fuego);
     color: var(--secondary);
   }
   
-  .agua {
+  .water {
     background-color: var(--agua);
     color: var(--secondary);
   }
   
-  .eléctrico {
+  .electric {
     background-color: var(--eléctrico);
     color: var(--secondary);
   }
   
-  .hielo {
+  .ice {
     background-color: var(--hielo);
     color: var(--secondary);
   }
   
-  .lucha {
+  .fighting {
     background-color: var(--lucha);
     color: var(--secondary);
   }
   
-  .veneno {
+  .poison {
     background-color: var(--veneno);
     color: var(--secondary);
   }
   
-  .tierra {
+  .ground {
     background-color: var(--tierra);
     color: var(--secondary);
   }
   
-  .volador {
+  .flying {
     background-color: var(--volador);
     color: var(--secondary);
   }
   
-  .psíquico {
+  .psychic {
     background-color: var(--psíquico);
     color: var(--secondary);
   }
   
-  .bicho {
+  .bug {
     background-color: var(--bicho);
     color: var(--secondary);
   }
   
-  .roca {
+  .rock {
     background-color: var(--roca);
     color: var(--secondary);
   }
   
-  .fantasma {
+  .ghost {
     background-color: var(--fantasma);
     color: var(--secondary);
   }
   
-  .dragón {
+  .dragon {
     background-color: var(--dragón);
     color: var(--secondary);
   }
   
-  .siniestro {
+  .dark {
     background-color: var(--siniestro);
     color: var(--secondary);
   }
   
-  .acero {
+  .steel {
     background-color: var(--acero);
     color: var(--secondary);
   }
   
-  .hada {
+  .fairy {
     background-color: var(--hada);
     color: var(--secondary);
   }

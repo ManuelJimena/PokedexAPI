@@ -1,9 +1,15 @@
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: .5rem 0;
     box-shadow: 4px 4px 8px #00000020;
+    background-color: var(--secondary);
 }
 
 .logo {
