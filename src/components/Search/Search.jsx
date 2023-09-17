@@ -1,12 +1,13 @@
 import "./Search.css"
 
-const Search = () => {
+function Search({ busqueda, setBusqueda, buscarPokemon }) {
     return (
 <>
-<section className="search-container">
-    <input type="text" placeholder="Buscar Pokemon" className="search-input"/>
+<form className="search-container" onSubmit={buscarPokemon}>
+    <input type="text" placeholder="Buscar Pokemon" className="search-input" value={busqueda}
+          onChange={(e) => setBusqueda(e.target.value)}/>
     <button className="search-btn"><i className='bx bx-search'></i></button>
-</section>
+</form>
 </>
     )
 };
