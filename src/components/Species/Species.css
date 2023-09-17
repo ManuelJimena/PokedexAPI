@@ -17,6 +17,11 @@
     text-transform: uppercase;
 }
 
+.pokemon {
+  background-color: var(grey);
+  color: black;
+}
+
   .grass {
     background-color: var(--planta);
     color: var(--secondary);

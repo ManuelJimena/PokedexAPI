@@ -2,7 +2,7 @@ import "./Species.css";
 
 const Species = () => {
     const tiposDePokemon = [
-        "all pokemons",
+        "all pokemon",
         "grass",
         "fire",
         "water",

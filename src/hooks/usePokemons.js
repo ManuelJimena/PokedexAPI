@@ -4,6 +4,7 @@ const UR_DEFAULT = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
 function usePokemons() {
     const [pokemons, setPokemons] = useState([])
     const [siguienteUrl, setSiguienteUrl] = useState("")
+    const [verMas, setVerMas] = useState(true)
 
     const getPokemons  = async (url = UR_DEFAULT) => {
         //Recuperamos el listado de Pokemons
@@ -38,6 +39,7 @@ function usePokemons() {
     const masPokemons = async () => {
         const {next, newPokemons} = await getPokemons(siguienteUrl)
         setPokemons(prev => [...prev, ...newPokemons])
+        next === null && setVerMas(false)
         setSiguienteUrl(next)
     }
 
@@ -46,7 +48,7 @@ function usePokemons() {
     obtenerPokemons()
       }, [])
 
-      return {pokemons, masPokemons}
+      return {pokemons, masPokemons, verMas}
 };
 
 export default usePokemons;

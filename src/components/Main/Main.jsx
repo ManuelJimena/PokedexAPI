@@ -1,9 +1,10 @@
 import usePokemons from "../../hooks/usePokemons"
+import InfiniteScroll from "react-infinite-scroll-component"
 import "./Main.css"
 
 function Pokemon({id, nombre, imagen, altura, peso, tipos}) {
     return (
-        <div className="pokemon" key={id}>
+        <div className="pokemons" key={id}>
             <p className="pokemon-id-back">#{id}</p>
             <div className="pokemon-imagen">
                 <img src={imagen} alt={nombre}/>
@@ -35,18 +36,22 @@ function Pokemon({id, nombre, imagen, altura, peso, tipos}) {
 
 const Main = () => {
 
-const {pokemons, masPokemons} = usePokemons()
+const {pokemons, masPokemons, verMas} = usePokemons()
 
     return (
         <main>
             <section id="todos">
+                <InfiniteScroll
+                dataLength={pokemons.length}
+                next={masPokemons}
+                hasMore={verMas}
+                loader={<h4>Loading...</h4>}
+                >
                 <div className="pokemon-todos" id="listaPokemon">
             { pokemons.map(pokemon => <Pokemon {...pokemon} key={pokemon.id}/>)}
                 </div>
+                </InfiniteScroll>
             </section>
-            <div className="morebtn">
-                <button className="more-btn" onClick={masPokemons}>Mostrar más</button>
-            </div>
         </main>
     )
 }
