@@ -38,9 +38,11 @@ const {pokemons, masPokemons} = usePokemons()
             <section id="todos">
                 <div className="pokemon-todos" id="listaPokemon">
             { pokemons.map(pokemon => <Pokemon {...pokemon} key={pokemon.id}/>)}
-            </div>
+                </div>
             </section>
-            <button className="more-btn" onClick={masPokemons}>Mostrar más</button>
+            <div className="morebtn">
+                <button className="more-btn" onClick={masPokemons}>Mostrar más</button>
+            </div>
         </main>
     )
 }
