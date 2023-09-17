@@ -21,8 +21,12 @@ function Pokemon({id, nombre, imagen, altura, peso, tipos}) {
           ))}
         </div>
                 <div className="pokemon-stats">
-                    <p className="stat">{altura}</p>
-                    <p className="stat">{peso}</p>
+                <p className="stat">
+                    {altura >= 10
+                    ? `${(altura / 10).toFixed(2)}m`
+                    : `${altura}0cm`}
+                </p>
+                    <p className="stat">{peso / 10}kg</p>
                 </div>
             </div>
         </div>
