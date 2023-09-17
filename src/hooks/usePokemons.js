@@ -4,7 +4,7 @@ const UR_DEFAULT = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
 function usePokemons() {
     const [pokemons, setPokemons] = useState([])
     const [siguienteUrl, setSiguienteUrl] = useState("")
-    const [verMas, setVerMas] = useState(true)
+    const [verMas, setVerMas] = useState(false)
 
     const getPokemons  = async (url = UR_DEFAULT) => {
         //Recuperamos el listado de Pokemons

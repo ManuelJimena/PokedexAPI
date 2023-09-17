@@ -46,6 +46,9 @@ const {pokemons, masPokemons, verMas} = usePokemons()
                 next={masPokemons}
                 hasMore={verMas}
                 loader={<h4>Loading...</h4>}
+                endMessage={
+                    <h3 className="endpokemon" style={{ gridColumn: "1/6"}}>Gotta Catch ‘em All</h3>
+                }
                 >
                 <div className="pokemon-todos" id="listaPokemon">
             { pokemons.map(pokemon => <Pokemon {...pokemon} key={pokemon.id}/>)}
