@@ -11,9 +11,9 @@
   }
   
   .modal-body {
-    background-color: var(--back);
-    width: 40%;
-    min-width: 400px;
+    background-color: var(--secondary);
+    width: 50%;
+    min-width: 500px;
     border-radius: 10px;
     position: absolute;
     padding: 1rem;
@@ -83,4 +83,23 @@
     height: 30px;
     display: grid;
     place-items: center;
+  }
+
+  @media (max-width: 550px) {
+    .imagen-detalle {
+      width: 200px;
+    }
+
+    .modal-body {
+      display: block;
+      min-width: 370px;
+    }
+  }
+
+  @media (max-width: 400px) {
+      .modal-body {
+      display: block;
+      padding-left: .2rem;
+      min-width: 300px;
+    }
   }
