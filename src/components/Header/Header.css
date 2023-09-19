@@ -35,7 +35,7 @@ header {
 }
 
 .switch label span{
-    background-color: white;
+    background-color: var(--secondary);
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 1.5rem;
@@ -49,4 +49,9 @@ header {
 .bx {
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--primary);
+}
+
+.bx-search {
+    color: var(--secondary);
 }

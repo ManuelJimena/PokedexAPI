@@ -12,9 +12,10 @@ function Cards({mostrar, pokemon, cerrar}) {
           </section>
         </div>
         <div className="data">
-          <h2 className="titulo">{pokemon.nombre} ({pokemon.id})</h2>
+          <h2 className="titulo">{pokemon.nombre} (#{pokemon.id})</h2>
 
           <h3 className="titulo-seccion">Habilidades</h3>
+          {pokemon.types?.map(type => <span className='tag'>{type}</span>)}
           {pokemon.abilities?.map(ability => <span className='tag'>{ability}</span>)}
 
           <h3 className="titulo-seccion">Estadisticas</h3>

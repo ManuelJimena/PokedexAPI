@@ -66,7 +66,7 @@ main {
 }
 
 .pokemon-id {
-    background-color: rgba(172, 172, 172, 0.363);
+    background-color: var(--quaternary);
     padding: .25rem .5rem;
     border-radius: 100vmax;
     font-size: .75rem;
@@ -101,7 +101,7 @@ main {
 }
 
 .stat {
-background-color: rgba(172, 172, 172, 0.363);
+background-color: var(--quaternary);
 padding: .25rem .5rem;
 border-radius: 100vmax;
 }
