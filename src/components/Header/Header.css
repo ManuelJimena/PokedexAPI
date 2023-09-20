@@ -55,3 +55,15 @@ header {
 .bx-search {
     color: var(--secondary);
 }
+
+@media (max-width: 500px) {
+    header {
+        height: 70px;
+    }
+    
+    .logo {
+        height: 3rem;
+      
+    }
+    
+  }
