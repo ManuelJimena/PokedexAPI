@@ -70,6 +70,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+
   }
   
   .stats > section {
@@ -78,6 +79,7 @@
     flex-direction: column;
     text-transform: capitalize;
     background-color: var(--quaternary);
+    font-family: 'Roboto', sans-serif;
   }
   
   .puntos {
@@ -91,12 +93,16 @@
 
   @media (max-width: 550px) {
     .imagen-detalle {
-      width: 200px;
+      width: 175px;
     }
 
     .modal-body {
       display: block;
       min-width: 370px;
+    }
+
+    .stats {
+      font-size: 14px;
     }
   }
 
