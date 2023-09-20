@@ -1,6 +1,6 @@
 import './Cards.css'
 
-function Cards({mostrar, pokemon, cerrar}) {
+function Cards ({mostrar, pokemon, cerrar}) {
   
   return (
     <div className="modal-container" onClick={cerrar} style={{ display: mostrar ? 'grid' : 'none' }}>
