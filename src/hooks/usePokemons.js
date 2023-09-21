@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-const UR_DEFAULT = "https://pokeapi.co/api/v2/pokemon?limit=25&offset=0"
-const URL_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon/'
+//const UR_DEFAULT = "https://pokeapi.co/api/v2/pokemon?limit=25&offset=0"//
+//const URL_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon/'//
 
 function usePokemons() {
     const [pokemons, setPokemons] = useState([])

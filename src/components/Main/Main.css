@@ -121,13 +121,19 @@ border-radius: 100vmax;
     margin: 2% 0;
 }
 
-h4 {
+.todos {
+    display: flex;
+    justify-content: center;
+}
+
+.spinner {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 2% 0;
-    font-size: 60px;
+    margin-left: 40%;
+   height: 50px;
+   width: 50px;
 }
 
 @media (max-width: 480px) {
