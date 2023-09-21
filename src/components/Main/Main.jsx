@@ -67,7 +67,7 @@ const noVerPokemon = () => {
                 dataLength={pokemons.length}
                 next={masPokemons}
                 hasMore={verMas}
-                loader={<h4>Loading...</h4>}
+                loader={<img src="https://c.tenor.com/2lFt6lp1KaMAAAAi/run-pokemon.gif" alt="pikachu"></img>}
                 endMessage={
                     <h3 className="endpokemon" style={{ gridColumn: "1/6"}}>Gotta Catch ‘em All</h3>
                 }
