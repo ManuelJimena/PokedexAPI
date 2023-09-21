@@ -1,15 +1,15 @@
 .nav {
   margin-top: 120px;
+  padding: 0 7rem;
 }
 
 .nav-list {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 0.5rem;
   align-items: center;
   text-align: center;
-  
+  gap: 6px;
 }
 
 .nav-list button {
@@ -116,8 +116,17 @@
   }
 
   @media (max-width: 650px) {
+    .nav {
+      padding: 0 1rem;;  
+    }
     .nav-list {
-      margin: 1rem 1.3rem;   
+      gap: 2;  
+    }
+  }
+
+  @media (max-width: 500px) {
+    .nav {
+      margin-top: 95px;
     }
   }
  
