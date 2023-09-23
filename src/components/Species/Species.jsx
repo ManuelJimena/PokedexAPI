@@ -24,7 +24,7 @@ const Species = () => {
       ]; 
       
     return (
-<nav className="nav">
+<nav className="nav" translate="no">
             <ul className="nav-list">
                 {tiposDePokemon.map((tipo) => <li key={tipo}><button className={tipo}>{tipo}</button></li>)}  
             </ul>

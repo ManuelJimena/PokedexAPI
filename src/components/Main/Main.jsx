@@ -59,7 +59,7 @@ const noVerPokemon = () => {
   }
 
     return (
-        <main>
+        <main translate="no">
             <Cards {...mostrar} cerrar={noVerPokemon}/>
             <Search busqueda={busqueda} setBusqueda={setBusqueda} buscarPokemon={buscarPokemon}/>
             <section id="todos">

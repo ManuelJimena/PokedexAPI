@@ -121,19 +121,18 @@ border-radius: 100vmax;
     margin: 2% 0;
 }
 
-.todos {
-    display: flex;
-    justify-content: center;
-}
+
 
 .spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-left: 40%;
-   height: 50px;
-   width: 50px;
+    height: 90px;
+    width: 90px;
+    margin-left: 44.5%;
+}
+
+@media (max-width: 500px) {
+    .spinner {
+        margin-left: 34%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -146,5 +145,6 @@ border-radius: 100vmax;
     .pokemon-stats {
         font-size: .75rem;
     }
+
 }
 

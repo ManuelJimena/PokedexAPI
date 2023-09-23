@@ -3,7 +3,7 @@ import './Cards.css'
 function Cards ({mostrar, pokemon, cerrar}) {
   
   return (
-    <div className="modal-container" onClick={cerrar} style={{ display: mostrar ? 'grid' : 'none' }}>
+    <div className="modal-container" onClick={cerrar} translate="no" style={{ display: mostrar ? 'grid' : 'none' }}>
       <section className="modal-body">
         <div className="imagen-container">
           <img src={pokemon.imagen} alt={pokemon.nombre} className="imagen-detalle" />
