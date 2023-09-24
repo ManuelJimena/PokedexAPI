@@ -3,12 +3,14 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+  
 }
 
 .search-input {
     margin-bottom: 1.5rem;
     background-color: var(--secondary);
     border: 1px solid var(--primary);
+    
     border-radius: 10px;
     padding: 12px;
     flex: .2;

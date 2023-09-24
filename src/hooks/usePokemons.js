@@ -21,9 +21,9 @@ function usePokemons() {
                 imagen: poke.sprites.other["official-artwork"].front_default,
                 abilities,
                 stats,
+                tipos,
                 altura: poke.height,
                 peso: poke.weight,
-                tipos,
             }
          }
         
