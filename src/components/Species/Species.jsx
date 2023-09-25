@@ -66,7 +66,7 @@ const Species = () => {
           {/* Mapea los tipos de Pokémon para crear botones en la lista de navegación */}
           {tiposDePokemon.map((tipo) => (
             <li key={tipo}>
-              <button className={tipo}>{tipo}</button>
+              <button className={tipo} onClick={() => setTipoSeleccionado(tipo)}>{tipo}</button>
             </li>
           ))}
         </ul>
