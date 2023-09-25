@@ -75,7 +75,7 @@ const Main = () => {
     <main translate="no">
       <Cards {...mostrar} cerrar={noVerPokemon}/>
       <div>
-      <nav className="nav" translate="no">
+      <nav className="nav">
         <ul className="nav-list">
             {/* Muestra los botones con los distintos tipos de Pokemon. Al hacer clic en cada botón, se filtran los Pokemons */}
             <li><button className="all pokemon" onClick={() => setTipoSeleccionado("")}>all pokemon</button></li>
