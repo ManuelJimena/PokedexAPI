@@ -1,6 +1,6 @@
 import './App.css'
 import Header from './components/Header/Header';
-import Species from './components/Species/Species';
+import Scroll from './components/Scroll/Scroll';
 import Main from './components/Main/Main';
 
 
@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
     <Header/>
-    <Species/>
+    <Scroll/>
     <Main/>
     </>
   );

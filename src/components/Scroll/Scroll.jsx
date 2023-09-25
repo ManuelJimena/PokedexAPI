@@ -1,15 +1,16 @@
+import "./Scroll.css";
 import { useEffect, useState } from "react";
-import "./Species.css";
-import logo from "../../assets/Poké_Ball.svg";
+import logo from "../../assets/Poké_Ball_icon.png";
 
-const Species = () => {
+const Scroll = () => {
+  // Define el estado showScrollButton (boolean) que controla la visibilidad del botón de scroll
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   // Función que se ejecuta al hacer clic en la imagen de la esquina inferior derecha
   const handleClick = () => {
     // Obtiene la referencia a la sección con el id "all-pokemons-section"
     const allPokemonsSection = document.getElementById("all-pokemons-section");
-    
+
     // Hace scroll suave (smooth) hacia la sección "all-pokemons-section"
     allPokemonsSection.scrollIntoView({ behavior: "smooth" });
   };
@@ -36,45 +37,11 @@ const Species = () => {
     };
   }, []); // El array vacío asegura que el effect solo se ejecute una vez, al montar el componente
 
-  // Lista de tipos de Pokémon
-  const tiposDePokemon = [
-    "all pokemon",
-    "grass",
-    "fire",
-    "water",
-    "electric",
-    "ice",
-    "fighting",
-    "poison",
-    "ground",
-    "flying",
-    "psychic",
-    "bug",
-    "rock",
-    "ghost",
-    "dragon",
-    "dark",
-    "steel",
-    "fairy",
-    "normal"
-  ];
-
   return (
     <div>
-      <nav className="nav" translate="no">
-        <ul className="nav-list">
-          {/* Mapea los tipos de Pokémon para crear botones en la lista de navegación */}
-          {tiposDePokemon.map((tipo) => (
-            <li key={tipo}>
-              <button className={tipo} onClick={() => setTipoSeleccionado(tipo)}>{tipo}</button>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
       {/* Imagen en la esquina inferior derecha que aparece cuando el usuario hace suficiente scroll */}
       {showScrollButton && (
-        <img 
+        <img
           src={logo}
           alt="Botón de scroll"
           className="scroll-button"
@@ -91,4 +58,4 @@ const Species = () => {
   );
 };
 
-export default Species;
+export default Scroll;

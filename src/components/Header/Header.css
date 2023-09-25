@@ -46,6 +46,10 @@ header {
     transform: translateX(2.3rem);
 }
 
+.checkswitch {
+    display: none
+}
+
 .bx {
     font-size: 1.5rem;
     cursor: pointer;
