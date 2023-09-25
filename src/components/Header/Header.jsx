@@ -1,77 +1,78 @@
+import "./Header.css";
 import { useState, useEffect, useRef } from "react";
 import logo from "../../assets/logo_Pokédex.png";
 import sound from "../../assets/MainTheme.mp3";
-import "./Header.css";
 
 const Header = () => {
-  // Obtener el tema y el switch actual del localStorage o usar valores predeterminados
+  // Declaramos e inicializamos los estados necesarios para el header
   const [tema, setTema] = useState(localStorage.getItem("tema") || "claro");
-  const [switchState, setSwitchState] = useState(localStorage.getItem("switchState") === "true");
-
+  // `musicaReproduciendose` se utiliza para saber si la canción está reproduciendose o no
+  const [musicaReproduciendose, setMusicaReproduciendose] = useState(false);
+  // Utilizamos useRef para tener una referencia al objeto de audio
   const audioRef = useRef(null);
 
-  // Cambiar el tema y guardar la selección del usuario en el localStorage
+  // Leemos la posición del slider guardada en localStorage al cargar la página
+  const storedSliderPosition = localStorage.getItem("sliderPosition") === "oscuro";
+  // Inicializamos el estado del switch con el valor leído del localStorage
+  const [sliderPosition, setSliderPosition] = useState(storedSliderPosition);
+
+  // Esta función se encarga de cambiar el tema según el valor del switch
   const handleChange = (e) => {
     const nuevoTema = e.target.checked ? "oscuro" : "claro";
-    setTema(nuevoTema);
-    setSwitchState(e.target.checked);
-    localStorage.setItem("tema", nuevoTema);
-    localStorage.setItem("switchState", e.target.checked);
+    setTema(nuevoTema); // Actualizamos el estado del tema
+    localStorage.setItem("tema", nuevoTema); // Guardamos el nuevo tema en localStorage
+    setSliderPosition(e.target.checked); // Actualizamos el estado del switch
+
+    // Guardamos la posición del switch en localStorage cuando cambie
+    localStorage.setItem("sliderPosition", e.target.checked ? "oscuro" : "claro");
   };
 
-  // Reproducir la música principal de fondo
+  // Esta función se encarga de reproducir la música de la Pokédex
   const reproducirMusica = () => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(sound);
+    if (!musicaReproduciendose) {
+      if (audioRef.current) {
+        audioRef.current.play();
+      } else {
+        const audio = new Audio(sound); // Creamos un objeto de audio con el sonido
+        audio.play(); // Reproducimos la música
+        audioRef.current = audio; // Actualizamos la referencia al objeto de audio
+      }
+      setMusicaReproduciendose(true); // Seteamos el estado de la canción a reproduciendose
     }
-    audioRef.current.play();
   };
 
-  // Detener la reproducción de la música principal
+  // Esta función se encarga de detener la música de la Pokédex
   const detenerMusica = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+    if (audioRef.current) { // Revisamos si hay un objeto de audio
+      audioRef.current.pause(); // Detenemos la música
+      audioRef.current.currentTime = 0; // Reiniciamos el tiempo del audio
     }
+    setMusicaReproduciendose(false); // Seteamos el estado de la canción a no estar reproduciendose
   };
 
-  // Cambiar el tema seleccionado e iniciar o detener la música principal según sea necesario
+  // Usamos useEffect para actualizar el tema en tiempo real en el atributo `data-tema` del body al cambiar el valor de `tema`
   useEffect(() => {
     document.body.setAttribute("data-tema", tema);
-    localStorage.setItem("tema", tema);
-    localStorage.setItem("switchState", switchState);
-    if (audioRef.current) {
-      detenerMusica();
-      reproducirMusica();
-    }
-  }, [tema, switchState]);
+  }, [tema]);
 
-  // Cargar la configuración del 'switch' desde el localStorage
-  useEffect(() => {
-    const storedSwitch = localStorage.getItem("switchState");
-    if (storedSwitch) {
-      setSwitchState(storedSwitch === "true");
-    }
-  }, []);
-
+  // Renderizamos el header con HTML y JSX
   return (
     <header translate="no">
-      {/* Añade el logo de la Pokédex que al hacer clic reproduce o detiene la música de fondo */}
-      <a href="#/" onClick={audioRef.current?.paused ? reproducirMusica : detenerMusica}>
+      <a href="#/" onClick={musicaReproduciendose ? detenerMusica : reproducirMusica}>
         <img src={logo} alt="logo pokédex" className="logo" />
       </a>
-      {/* Muestra un 'switch' para seleccionar el tema claro u oscuro */}
       <div className="switch">
         <i className="bx bx-sun" id="darkMode-icon" />
         <label>
-          <input 
-            type="checkbox" 
-            className="checkswitch" 
-            onChange={handleChange} 
-            checked={switchState} 
+          <input
+            type="checkbox"
+            className="checkswitch"
+            onChange={handleChange}
+            checked={sliderPosition}
+            hidden
           />
           <span className="slider">
-            <img src="./Poké_Ball_icon.svg" alt="icon" />
+            <img src="/Poké_Ball_icon.svg" alt="icon" />
           </span>
         </label>
         <i className="bx bx-moon" />
@@ -81,3 +82,4 @@ const Header = () => {
 };
 
 export default Header;
+

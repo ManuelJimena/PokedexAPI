@@ -1,39 +1,76 @@
-import './Cards.css'
+import './Cards.css';
 
-function Cards ({mostrar, pokemon, cerrar}) {
+// Definimos un componente de función llamado `Cards`, que recibe tres props: `mostrar`, `pokemon` y `cerrar`
+function Cards({ mostrar, pokemon, cerrar }) {
+
   return (
-    // Muestra un modal con los detalles del Pokemon si `mostrar` es verdadero, de lo contrario, oculta el modal
-    <div className="modal-container" onClick={cerrar} translate="no" style={{ display: mostrar ? 'grid' : 'none' }}>
+    // Si `mostrar` es verdadero, mostrar el modal, de lo contrario, ocultarlo
+    <div
+      className="modal-container"
+      onClick={cerrar}
+      translate="no"
+      // Para mostrar u ocultar, usamos una condición ternaria
+      // `mostrar ? 'grid' : 'none'` hace que el modal se muestre si `mostrar` es verdadero
+      style={{ display: mostrar ? 'grid' : 'none' }}
+    >
       <section className="modal-body">
-        {/* Muestra la imagen del Pokemon y sus tipos */}
+        {/* El modal muestra la imagen del pokemon, sus tipos, el número de ID y sus estadísticas */}
+        {/* La primera sección contiene la imagen del Pokemon */}
         <div className="imagen-container">
+          {/* Mostramos la imagen del Pokemon, que se encuentra en la prop `pokemon.imagen` */}
           <img src={pokemon.imagen} alt={pokemon.nombre} className="imagen-detalle" />
           <section>
-            {pokemon.types?.map(type => <span className='tag'>{type}</span>)}
+            {/* Esta sección contiene los tipos del Pokemon */}
+            {/* Mostramos cada tipo del Pokemon usando un método `map` */}
+            {pokemon.types?.map((type, index) => (
+              // Cada tipo es un span que contiene `type` como texto y una clase `tag`
+              // Usamos el índice dentro de la función `map` como key
+              <span key={index} className="tag">
+                {type}
+              </span>
+            ))}
           </section>
         </div>
-        {/* Muestra el nombre y número de ID del Pokemon, así como sus habilidades y estadísticas */}
+        {/* La segunda sección contiene el nombre del pokemon, su ID, sus habilidades y sus estadísticas */}
         <div className="data">
-          <h2 className="titulo">{pokemon.nombre} (#{pokemon.id})</h2>
+          {/* Mostramos el nombre del pokemon (contenida en `pokemon.nombre`) */}
+          {/* También mostramos su ID (contenida en `pokemon.id`) */}
+          <h2 className="titulo">
+            {pokemon.nombre} (#{pokemon.id})
+          </h2>
 
+          {/* Mostramos las habilidades del Pokemon */}
+          {/* Agregamos un título de sección */}
           <h3 className="titulo-seccion">Habilidades</h3>
-          {/* Muestra las habilidades del Pokemon */}
-          {pokemon.abilities?.map(ability => <span className='tag'>{ability}</span>)}
+          {/* Mostramos cada habilidad del Pokemon usando un método `map` */}
+          {pokemon.abilities?.map((ability, index) => (
+            // Cada habilidad es un span que contiene `ability` como texto y una clase `tag`
+            // Usamos el índice dentro de la función `map` como key
+            <span key={index} className="tag">
+              {ability}
+            </span>
+          ))}
 
+          {/* Mostramos las estadísticas del Pokemon */}
+          {/* Agregamos un título de sección */}
           <h3 className="titulo-seccion">Estadisticas</h3>
-          <div className='stats'>
-            {/* Muestra las estadísticas del Pokemon */}
-            {pokemon.stats?.map(stat =>
-              <section>
-                <span className='puntos'>{stat.base}</span>
+          <div className="stats">
+            {/* Mostramos cada estadística del Pokemon usando un método `map` */}
+            {pokemon.stats?.map((stat, index) => (
+              // Cada estadística es una sección que contiene dos span:
+              // el primer span contiene la base de la estadística (`stat.base`) y una clase `puntos`
+              // el segundo span contiene el nombre de la estadística (`stat.name`)
+              // Usamos `stat.name` como key, porque esperamos que cada estadística tenga un nombre único
+              <section key={stat.name}>
+                <span className="puntos">{stat.base}</span>
                 <span>{stat.name}</span>
               </section>
-            )}
+            ))}
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default Cards
+export default Cards;
