@@ -168,9 +168,27 @@ border-radius: 100vmax;
 
 @media (max-width: 400px) {
     .endpokemon {
-        margin-left: 12%;
+        margin-left: 19%;
         height: 85px;
         width: auto;
+    }
+}
+
+@media (max-width: 370px) {
+    .endpokemon {
+        margin-left: 18%;
+    }
+}
+
+@media (max-width: 350px) {
+    .endpokemon {
+        margin-left: 16.5%;
+    }
+}
+
+@media (max-width: 330px) {
+    .endpokemon {
+        margin-left: 12%;
     }
 }
 
