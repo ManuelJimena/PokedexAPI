@@ -30,6 +30,7 @@
   
   .imagen-detalle {
     width: 300px;
+    margin-bottom: 5px;
     aspect-ratio: 8/10;
   }
 
@@ -53,6 +54,7 @@
     margin-top: 2%;
     text-transform: capitalize;
     font-weight: 800;
+    margin-top: 12px;
   }
   
   .titulo-seccion {
@@ -91,10 +93,6 @@
     place-items: center;
   }
 
-  .imagen-detalle > section > span {
-    gap: 20%;
-  }
-
   @media (max-width: 550px) {
     .imagen-detalle {
       width: 175px;
@@ -115,6 +113,23 @@
       display: block;
       padding-left: .2rem;
       min-width: 340px;
-      
     }
-  }
+    .imagen-detalle {
+      width: 125px;
+    }
+    .data section {
+      padding: 1px;;
+    }
+
+    .data .titulo {
+      font-size: 18px;
+    }
+    
+    .titulo-seccion {
+      font-size: 15px;
+    }
+
+    .tag {
+      font-size: 14px;
+    }
+}
