@@ -22,7 +22,6 @@ function Cards({ mostrar, pokemon, cerrar }) {
           <section>
             {/* Esta sección contiene los tipos del Pokemon */}
             {/* Mostramos cada tipo del Pokemon usando un método `map` */}
-            {console.log(pokemon.type)}
             {pokemon.tipos?.map((tipo, index) => (
               // Cada tipo es un span que contiene `type` como texto y una clase `tag`
               // Usamos el índice dentro de la función `map` como key
