@@ -26,7 +26,7 @@ function Cards({ mostrar, pokemon, cerrar }) {
             {pokemon.tipos?.map((tipo, index) => (
               // Cada tipo es un span que contiene `type` como texto y una clase `tag`
               // Usamos el índice dentro de la función `map` como key
-              <span key={index} className="tag">
+              <span key={index} className={tipo}>
                 {tipo}
               </span>
             ))}
