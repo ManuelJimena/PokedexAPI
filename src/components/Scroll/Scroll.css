@@ -29,66 +29,119 @@
   .grass {
     background-color: var(--planta);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    
   }
   
   .fire {
     background-color: var(--fuego);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .water {
     background-color: var(--agua);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .electric {
     background-color: var(--eléctrico);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .ice {
     background-color: var(--hielo);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .fighting {
     background-color: var(--lucha);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .poison {
     background-color: var(--veneno);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .ground {
     background-color: var(--tierra);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .flying {
     background-color: var(--volador);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .psychic {
     background-color: var(--psíquico);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .bug {
     background-color: var(--bicho);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .rock {
     background-color: var(--roca);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .ghost {
     background-color: var(--fantasma);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .dragon {
@@ -99,21 +152,37 @@
   .dark {
     background-color: var(--siniestro);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .steel {
     background-color: var(--acero);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .fairy {
     background-color: var(--hada);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .normal {
     background-color: var(--normal);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
 
   .scroll-button {

@@ -50,9 +50,9 @@
   }
   
   .data .titulo {
-    margin: 0;
+    margin-top: 2%;
     text-transform: capitalize;
-    font-weight: 500;
+    font-weight: 800;
   }
   
   .titulo-seccion {
@@ -89,6 +89,10 @@
     height: 32px;
     display: grid;
     place-items: center;
+  }
+
+  .imagen-detalle > section > span {
+    gap: 20%;
   }
 
   @media (max-width: 550px) {
