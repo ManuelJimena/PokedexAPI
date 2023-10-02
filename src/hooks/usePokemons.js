@@ -19,6 +19,7 @@ function usePokemons() {
                 id: poke.id,
                 nombre: poke.name,
                 imagen: poke.sprites.other["official-artwork"].front_default,
+                //imagen: poke.sprites.versions["generation-v"]["black-white"].animated.front_default,
                 abilities,
                 stats,
                 tipos,
