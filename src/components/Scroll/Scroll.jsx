@@ -10,20 +10,17 @@ const Scroll = () => {
   const handleClick = () => {
     // Obtiene la referencia a la sección con el id "all-pokemons-section"
     const allPokemonsSection = document.getElementById("all-pokemons-section");
-
-    // Hace scroll suave (smooth) hacia la sección "all-pokemons-section"
-    allPokemonsSection.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
     // Función que se ejecuta cuando el usuario hace scroll en la página
     const handleScroll = () => {
-      // Verifica si el usuario ha hecho suficiente scroll hacia abajo (200 píxeles)
-      if (window.scrollY > 200) {
-        // Si es así, muestra el botón de scroll
+
+      if (window.scrollY > 93200) {
+
         setShowScrollButton(true);
       } else {
-        // Si no, oculta el botón de scroll
+
         setShowScrollButton(false);
       }
     };
