@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function Pokemon({ id, nombre, imagen, altura, peso, tipos, verPokemon }) {
   return (
-    <div className="pokemons" key={id} onClick={verPokemon}>
+    <div className="pokemons" key={id}>
       {/* Muestra el número de ID del Pokemon */}
       <p className="pokemon-id-back">#{id}</p>
       {/* Muestra la imagen del Pokemon */}
@@ -31,11 +31,11 @@ function Pokemon({ id, nombre, imagen, altura, peso, tipos, verPokemon }) {
         {/* Muestra la altura y peso del Pokemon */}
         <div className="pokemon-stats">
           <p className="stat">
-            {altura >= 10
-              ? `${(altura / 10).toFixed(2)}m`
-              : `${altura}0cm`}
+            {altura >= 2
+              ? `${(altura).toFixed(1)}cm`
+              : `${altura}m`}
           </p>
-          <p className="stat">{peso / 10}kg</p>
+          <p className="stat">{peso}kg</p>
         </div>
       </div>
     </div>

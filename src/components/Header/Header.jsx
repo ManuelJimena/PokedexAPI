@@ -5,26 +5,23 @@ import sound from "../../assets/MainTheme.mp3";
 
 const Header = () => {
   // Declaramos e inicializamos los estados necesarios para el header
-  const [tema, setTema] = useState(localStorage.getItem("tema") || "claro");
+  const [tema, setTema] = useState("claro");
   // `musicaReproduciendose` se utiliza para saber si la canción está reproduciendose o no
   const [musicaReproduciendose, setMusicaReproduciendose] = useState(false);
   // Utilizamos useRef para tener una referencia al objeto de audio
   const audioRef = useRef(null);
 
   // Leemos la posición del slider guardada en localStorage al cargar la página
-  const storedSliderPosition = localStorage.getItem("sliderPosition") === "oscuro";
+  const storedSliderPosition = "oscuro";
   // Inicializamos el estado del switch con el valor leído del localStorage
   const [sliderPosition, setSliderPosition] = useState(storedSliderPosition);
 
   // Esta función se encarga de cambiar el tema según el valor del switch
   const handleChange = (e) => {
-    const nuevoTema = e.target.checked ? "oscuro" : "claro";
+    const nuevoTema = "claro";
     setTema(nuevoTema); // Actualizamos el estado del tema
     localStorage.setItem("tema", nuevoTema); // Guardamos el nuevo tema en localStorage
     setSliderPosition(e.target.checked); // Actualizamos el estado del switch
-
-    // Guardamos la posición del switch en localStorage cuando cambie
-    localStorage.setItem("sliderPosition", e.target.checked ? "oscuro" : "claro");
   };
 
   // Esta función se encarga de reproducir la música de la Pokédex
@@ -37,7 +34,7 @@ const Header = () => {
         audio.play(); // Reproducimos la música
         audioRef.current = audio; // Actualizamos la referencia al objeto de audio
       }
-      setMusicaReproduciendose(true); // Seteamos el estado de la canción a reproduciendose
+      setMusicaReproduciendose(false); // Seteamos el estado de la canción a reproduciendose
     }
   };
 
