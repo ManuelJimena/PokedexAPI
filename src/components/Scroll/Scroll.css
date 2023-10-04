@@ -147,6 +147,10 @@
   .dragon {
     background-color: var(--dragón);
     color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-transform: uppercase;
   }
   
   .dark {

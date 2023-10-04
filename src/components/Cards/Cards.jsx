@@ -18,7 +18,7 @@ function Cards({ mostrar, pokemon, cerrar }) {
         {/* La primera sección contiene la imagen del Pokemon */}
         <div className="imagen-container">
           {/* Mostramos la imagen del Pokemon, que se encuentra en la prop `pokemon.imagen` */}
-          <img src={pokemon.imagen} alt={pokemon.nombre} className="imagen-detalle" />
+          <img src={pokemon.animation} alt={pokemon.nombre} className="imagen-detalle" />
           <section>
             {/* Esta sección contiene los tipos del Pokemon */}
             {/* Mostramos cada tipo del Pokemon usando un método `map` */}

@@ -123,6 +123,16 @@ border-radius: 100vmax;
     width: auto;
 }
 
+
+.spinner {
+    height: 90px;
+    width: 90px;
+    display: block;
+    margin: auto;
+    position: relative;
+    margin-top: 20px;
+}
+
 @media (max-width: 500px) {
     .endpokemon {
         height: 100px;

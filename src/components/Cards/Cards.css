@@ -29,15 +29,18 @@
   }
   
   .imagen-detalle {
-    width: 300px;
-    margin-bottom: 5px;
-    aspect-ratio: 8/10;
+    width: 270px;
+    margin-bottom: 15px;
+    
   }
 
   .tag {
     background-color: var(--quinary);
     color: var(--secondary);
-    
+    padding: 4px 6px;
+    margin-right: 5px;
+    border-radius: 5px;
+    text-transform: capitalize;
   }
   
   .data {
@@ -91,21 +94,6 @@
   }
 
   @media (max-width: 550px) {
-    .imagen-detalle {
-      width: 175px;
-    }
-
-    .modal-body {
-      display: block;
-      min-width: 370px;
-    }
-
-    .stats {
-      font-size: 14px;
-    }
-  }
-
-  @media (max-width: 400px) {
       .modal-body {
       display: block;
       padding-left: .2rem;
@@ -127,6 +115,9 @@
     }
 
     .tag {
+      font-size: 14px;
+    }
+    .stats {
       font-size: 14px;
     }
 }

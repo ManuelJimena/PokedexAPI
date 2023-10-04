@@ -1,77 +1,134 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const UR_DEFAULT = "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0";
-const URL_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon/';
+export const URL_DEFAULT =
+  "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0&distinct=true";
+export const URL_ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
 
 function usePokemons() {
+  // Estado para almacenar la lista de Pokémon
   const [pokemons, setPokemons] = useState([]);
+  // Estado para la URL de la siguiente página de resultados
   const [siguienteUrl, setSiguienteUrl] = useState("");
+  // Estado para controlar si hay más resultados por cargar
   const [verMas, setVerMas] = useState(true);
+  // Estado para almacenar el tipo de Pokémon seleccionado
+  const [tipoSeleccionado, setTipoSeleccionado] = useState("");
 
-  // Función para obtener información de un Pokémon desde su URL.
+  // Estado para controlar si se ha terminado de mostrar la lista de pokemons filtrados por tipo.
+  const [endOfList, setEndOfList] = useState(false);
+
+  // Función para obtener los detalles de un Pokémon
   const fetchPokemon = async (url) => {
-    const response = await fetch(url);
-    const poke = await response.json();
+    const { data } = await axios.get(url);
 
-    // Extracción de datos relevantes del Pokémon.
-    const abilities = poke.abilities.map(a => a.ability.name);
-    const stats = poke.stats.map(s => ({ name: s.stat.name, base: s.base_stat }));
-    const tipos = poke.types.map(t => t.type.name);
+    // Extrae información relevante del Pokémon
+    const abilities = data.abilities.map((a) => a.ability.name);
+    const stats = data.stats.map((s) => ({
+      name: s.stat.name,
+      base: s.base_stat,
+    }));
+    const tipos = data.types.map((t) => t.type.name);
 
     return {
-      id: poke.id,
-      nombre: poke.name,
-      imagen: poke.sprites.back_default,
+      id: data.id,
+      nombre: data.name,
+      imagen: data.sprites.other["official-artwork"].front_default,
+      animation:
+        data.sprites.versions["generation-v"]["black-white"].animated
+          .front_default,
       abilities,
       stats,
       tipos,
-      altura: poke.height,
-      peso: poke.weight,
+      altura: data.height,
+      peso: data.weight,
     };
   };
 
-  // Función para obtener una lista de Pokémones desde una URL.
-  const getPokemons = async (url = UR_DEFAULT) => {
-    const response = await fetch(url);
-    const listaPokemons = await response.json();
-    const { next, results } = listaPokemons;
+  // Función para obtener una página de Pokémon
+  const fetchPokemons = async (url = URL_DEFAULT) => {
+    const { data } = await axios.get(url);
+    const { next, results } = data;
 
-    // Obtenemos información detallada de cada Pokémon en la lista.
+    // Obtiene detalles de cada Pokémon en la página
     const newPokemons = await Promise.all(
-      results.map((pokemon) => fetchPokemon(pokemon.url))
+      results.map(({ url }) => fetchPokemon(url))
     );
 
     return { next, newPokemons };
   };
 
-  // Función para cargar la lista inicial de Pokémones.
+  // Función para obtener todos los Pokémon iniciales
   const obtenerPokemons = async () => {
-    const { next, newPokemons } = await getPokemons();
+    const { next, newPokemons } = await fetchPokemons();
     setPokemons(newPokemons);
     setSiguienteUrl(next);
   };
 
-  // Función para cargar más Pokémones a la lista.
+  // Función para cargar más Pokémon
   const masPokemons = async () => {
-    const { next, newPokemons } = await getPokemons(siguienteUrl);
-    setPokemons(prev => [...prev, ...newPokemons]);
-    next === null && setVerMas(false);
-    setSiguienteUrl(next);
+    if (siguienteUrl && !endOfList) {
+      const { next, newPokemons } = await fetchPokemons(siguienteUrl);
+      setPokemons((prev) => [...prev, ...newPokemons]);
+      setVerMas(next !== null);
+      setSiguienteUrl(next);
+    }
   };
 
-  // Función para buscar información de un Pokémon por nombre.
+  // Función para buscar un Pokémon por nombre
   const searchPokemon = async (busqueda) => {
     const url = `${URL_ENDPOINT}${busqueda.toLocaleLowerCase()}`;
-    return await fetchPokemon(url);
+    const { data } = await axios.get(url);
+    return fetchPokemon(url);
   };
 
-  // Cargar la lista inicial de Pokémones cuando el componente se monta.
+  // Función para obtener todos los Pokémon de un tipo específico
+  const fetchAllPokemonsByType = async (tipo) => {
+    try {
+      const { data } = await axios.get(
+        `https://pokeapi.co/api/v2/type/${tipo}`
+      );
+
+      const pokemonByTypeUrls = new Set();
+      const nonEmptyPages = data["pokemon"].filter(
+        (p) => p["pokemon"]["name"] !== ""
+      );
+      for (let i = 0; i < nonEmptyPages.length; i++) {
+        const { url } = nonEmptyPages[i]["pokemon"];
+        pokemonByTypeUrls.add(url);
+      }
+
+      const pokemonByType = await Promise.all(
+        [...pokemonByTypeUrls].map((url) => fetchPokemon(url))
+      );
+
+      setEndOfList(true);
+      setPokemons(pokemonByType);
+      setTipoSeleccionado(tipo);
+    } catch (error) {
+      console.log(error);
+      setPokemons([]);
+    }
+  };
+
+  // Función para filtrar Pokémon por tipo
+  const filtrarPorTipo = async (tipo) => {
+    if (tipo === "all pokemon") {
+      await obtenerPokemons();
+      setTipoSeleccionado("");
+      setEndOfList(false);
+    } else {
+      await fetchAllPokemonsByType(tipo);
+    }
+  };
+
+  // Carga los Pokémon iniciales al montar el componente
   useEffect(() => {
     obtenerPokemons();
   }, []);
 
-  // Devolver las funciones y datos relevantes para el componente que usa este hook.
-  return { pokemons, masPokemons, verMas, searchPokemon };
+  // Devuelve los datos y funciones relevantes para la aplicación
+  return { pokemons, masPokemons, verMas, searchPokemon, filtrarPorTipo, tipoSeleccionado, endOfList, setEndOfList };
 }
 
 export default usePokemons;
