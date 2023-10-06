@@ -34,9 +34,7 @@ function usePokemons() {
       id: data.id,
       nombre: data.name,
       imagen: data.sprites.other["official-artwork"].front_default,
-      animation:
-        data.sprites.versions["generation-v"]["black-white"].animated
-          .front_default,
+      animation:data.sprites.versions["generation-v"]["black-white"].animated.front_default,
       abilities,
       stats,
       tipos,
