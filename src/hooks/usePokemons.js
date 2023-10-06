@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const URL_DEFAULT =
-  "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0&distinct=true";
+export const URL_DEFAULT = "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0&distinct=true";
 export const URL_ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
 
 function usePokemons() {
@@ -24,10 +23,7 @@ function usePokemons() {
 
     // Extrae información relevante del Pokémon
     const abilities = data.abilities.map((a) => a.ability.name);
-    const stats = data.stats.map((s) => ({
-      name: s.stat.name,
-      base: s.base_stat,
-    }));
+    const stats = data.stats.map((s) => ({ name: s.stat.name, base: s.base_stat, }));
     const tipos = data.types.map((t) => t.type.name);
 
     return {
