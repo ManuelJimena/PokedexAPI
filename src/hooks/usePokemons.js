@@ -12,8 +12,9 @@ function usePokemons() {
   // Estado para controlar si hay más resultados por cargar
   const [verMas, setVerMas] = useState(true);
   // Estado para almacenar el tipo de Pokémon seleccionado
-  const [tipoSeleccionado, setTipoSeleccionado] = useState("");
+  const [cargando, setCargando] = useState(false);
 
+  const [tipoSeleccionado, setTipoSeleccionado] = useState("");
   // Estado para controlar si se ha terminado de mostrar la lista de pokemons filtrados por tipo.
   const [endOfList, setEndOfList] = useState(false);
 
@@ -43,29 +44,34 @@ function usePokemons() {
   const fetchPokemons = async (url = URL_DEFAULT) => {
     const { data } = await axios.get(url);
     const { next, results } = data;
-
     // Obtiene detalles de cada Pokémon en la página
     const newPokemons = await Promise.all(
       results.map(({ url }) => fetchPokemon(url))
     );
-
     return { next, newPokemons };
   };
 
   // Función para obtener todos los Pokémon iniciales
   const obtenerPokemons = async () => {
-    const { next, newPokemons } = await fetchPokemons();
-    setPokemons(newPokemons);
-    setSiguienteUrl(next);
+    if (!cargando) {
+      setCargando(true);
+      const { next, newPokemons } = await fetchPokemons(URL_DEFAULT);
+      setPokemons(newPokemons);
+      setSiguienteUrl(next);
+      setVerMas(next !== null);
+      setCargando(false);
+    }
   };
 
   // Función para cargar más Pokémon
   const masPokemons = async () => {
-    if (siguienteUrl && !endOfList) {
+    if (siguienteUrl && !cargando) {
+      setCargando(true);
       const { next, newPokemons } = await fetchPokemons(siguienteUrl);
-      setPokemons((prev) => [...prev, ...newPokemons]);
-      setVerMas(next !== null);
+      setPokemons(prev => [...prev, ...newPokemons]);
       setSiguienteUrl(next);
+      setVerMas(next !== null);
+      setCargando(false);
     }
   };
 
@@ -122,7 +128,7 @@ function usePokemons() {
   }, []);
 
   // Devuelve los datos y funciones relevantes para la aplicación
-  return { pokemons, masPokemons, verMas, searchPokemon, filtrarPorTipo, tipoSeleccionado, endOfList, setEndOfList };
+  return { pokemons, masPokemons, verMas, cargando, searchPokemon, filtrarPorTipo, tipoSeleccionado, endOfList, setEndOfList };
 }
 
 export default usePokemons;
