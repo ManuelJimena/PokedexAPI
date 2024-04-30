@@ -68,6 +68,9 @@ function usePokemons() {
     if (siguienteUrl && !cargando) {
       setCargando(true);
       const { next, newPokemons } = await fetchPokemons(siguienteUrl);
+      if (!next) {
+        setEndOfList(true);
+      }
       setPokemons(prev => [...prev, ...newPokemons]);
       setSiguienteUrl(next);
       setVerMas(next !== null);

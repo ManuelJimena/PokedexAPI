@@ -130,37 +130,26 @@ const Main = () => {
       <section id="todos">
         {/* Componente InfiniteScroll para cargar más Pokémon al desplazarse */}
         <InfiniteScroll
-          dataLength={pokemons.length}
-          next={masPokemons}
-          hasMore={verMas && !endOfList} // Verificación de endOfList aquí.
-          loader={<img className="spinner" src="https://c.tenor.com/2lFt6lp1KaMAAAAi/run-pokemon.gif"
-            alt="pikachu"></img>}
-          endMessage={
-            endOfList && (
-              <img className="endpokemon" src="https://res.cloudinary.com/dhjmt9vvq/image/upload/v1695665115/Gotta_kjzkhu.png" alt="End of List"></img>
-            )
-          }
-          onScroll={() => {
-            if (
-              pokemons.length >= 30 &&
-              window.innerHeight + window.scrollY >= document.body.offsetHeight &&
-              !endOfList
-            ) {
-              setEndOfList(true);
-            }
-          }}
-        >
-          <div className="pokemon-todos" id="listaPokemon">
-            {/* Mapea la lista de Pokémon y muestra cada uno utilizando el componente Pokemon */}
-            {pokemons.map((pokemon) => (
-              <Pokemon
-                key={pokemon.id}
-                {...pokemon}
-                verPokemon={() => verPokemon(pokemon)}
-              />
-            ))}
-          </div>
-        </InfiniteScroll>
+  dataLength={pokemons.length}
+  next={masPokemons}
+  hasMore={verMas && !endOfList} // Verificación de endOfList aquí.
+  loader={<img className="spinner" src="https://c.tenor.com/2lFt6lp1KaMAAAAi/run-pokemon.gif" alt="pikachu"></img>}
+  endMessage={
+    endOfList && (
+      <img className="endpokemon" src="https://res.cloudinary.com/dhjmt9vvq/image/upload/v1695665115/Gotta_kjzkhu.png" alt="End of List"></img>
+    )
+  }
+>
+  <div className="pokemon-todos" id="listaPokemon">
+    {pokemons.map((pokemon) => (
+      <Pokemon
+        key={pokemon.id}
+        {...pokemon}
+        verPokemon={() => verPokemon(pokemon)}
+      />
+    ))}
+  </div>
+</InfiniteScroll>
       </section>
     </main>
   );
