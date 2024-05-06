@@ -10,6 +10,7 @@
 - [Tecnologías](#tecnologías)
 - [Instalación](#instalación)
 - [Uso](#uso)
+- [Autor](#autor)
 
 ## 📘 Descripción
 
@@ -18,10 +19,10 @@ Este proyecto aprovecha la [PokéAPI](https://pokeapi.co/) para obtener datos de
 ## 💻 Tecnologías
 
 Este proyecto está construido con las siguientes tecnologías:
-- ![Vite](https://img.shields.io/badge/-Vite-646cff?style=flat&logo=vite)
-- ![React](https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react)
-- ![Axios](https://img.shields.io/badge/-Axios-671ddf?style=flat&logo=axios)
-- ![Infinite Scroll](https://img.shields.io/badge/-Infinite_Scroll-208080?style=flat)
+- **Vite**: Un compilador de frontend moderno que proporciona un entorno de desarrollo rápido gracias a su enfoque en la pre-construcción de módulos. Vite mejora significativamente el tiempo de inicio del servidor y el recargado en caliente durante el desarrollo.
+- **React**: Una biblioteca de JavaScript para construir interfaces de usuario. Permite desarrollar aplicaciones web complejas que pueden actualizar y renderizar de manera eficiente componentes dinámicos de la interfaz de usuario.
+- **Axios**: Un cliente HTTP basado en promesas para el navegador y node.js. Es ampliamente utilizado para realizar solicitudes HTTP a APIs externas y es famoso por su API fácil de usar y por manejar excepciones de manera robusta.
+- **Infinite Scroll**: Una técnica de JavaScript que carga contenido dinámicamente mientras el usuario se desplaza hacia abajo en la página, mejorando la experiencia del usuario al reducir los tiempos de carga y el consumo de datos.
 
 ## 🛠️ Instalación
 
@@ -30,7 +31,7 @@ Sigue estos pasos para configurar el proyecto en tu sistema local:
 1. **Clonar el repositorio:**
 
      ```js
-   git clone https://github.com/your-username/pokedex.git
+   git clone https://github.com/ManuelJimena/pokedex.git
    ```
 2. **Instalar dependencias:**
 
@@ -40,7 +41,7 @@ Navega al directorio del proyecto y ejecuta el siguiente comando para instalar l
 npm install
  ```
 
-4. **Inicia el servidor de desarrollo:**
+3. **Inicia el servidor de desarrollo:**
 
 Ejecuta el siguiente comando para arrancar:
 
